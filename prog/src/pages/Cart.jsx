@@ -1,51 +1,61 @@
-import React from "react"
+import React from 'react';
 
-export default function Cart() {
+const Cart = () => {
+    const cartItems = [
+        { id: 1, title: 'Название', description: 'Описание', price: 99, quantity: 1 },
+        { id: 2, title: 'Название', description: 'Описание', price: 99, quantity: 1 },
+        { id: 3, title: 'Название', description: 'Описание', price: 99, quantity: 1 },
+    ];
+
+    const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#F6F6F6] px-4">
-            <div className="w-full max-w-md bg-white p-8 rounded-3xl shadow-lg">
-                <div className="flex justify-center mb-6">
-                    <img
-                        src="/logo.svg"
-                        alt="Logo"
-                        className="h-12"
-                    />
+        <div className="max-w-[1185px] mx-auto bg-[#FFF5ED] px-6 py-10">
+            <h1 className="text-3xl font-bold mb-6">Корзина</h1>
+
+            <div className="flex flex-col lg:flex-row gap-6">
+                <div className="flex-1 space-y-4">
+                    {cartItems.map(item => (
+                    <div
+                        key={item.id}
+                        className="bg-white rounded-[20px] flex items-center p-4 justify-between shadow"
+                    >
+                        <div className="w-[100px] h-[100px] bg-gray-200 rounded-lg"></div>
+
+                        <div className="flex flex-col justify-between flex-1 px-4">
+                            <h3 className="font-semibold">{item.title}</h3>
+                            <p className="text-gray-600 text-sm">{item.description}</p>
+                            <button className="text-gray-600 hover:text-red-500 w-fit mt-1">
+                            </button>
+                        </div>
+
+                        <div className="flex flex-col items-end gap-2">
+                            <span className="text-lg font-semibold">{item.price}$</span>
+                            <div className="flex items-center gap-2 bg-[#F97316] rounded-full px-3 py-1 text-white">
+                                <button className="font-bold text-lg">-</button>
+                                <span>{item.quantity}</span>
+                                <button className="font-bold text-lg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    ))}
                 </div>
 
-                <h1 className="text-2xl font-bold text-center mb-6">Вход в аккаунт</h1>
-
-                <form className="space-y-5">
-                    <div>
-                        <label className="block text-sm mb-1 font-medium text-gray-700">Email</label>
-                        <input
-                        type="email"
-                        placeholder="example@mail.com"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm mb-1 font-medium text-gray-700">Пароль</label>
-                        <input
-                        type="password"
-                        placeholder="••••••••"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition font-medium"
-                    >
-                        Войти
+                <div className="w-full max-w-[300px] bg-white rounded-[20px] p-6 shadow">
+                    <p className="text-lg font-medium mb-2">
+                        Количество товаров: <span className="font-bold">{totalQuantity}</span>
+                    </p>
+                    <p className="text-lg font-medium mb-6">
+                        Итого: <span className="font-bold">{totalPrice}</span>
+                    </p>
+                    <button className="w-full bg-[#F97316] hover:bg-[#FB923C] text-white py-3 rounded-full font-semibold text-lg">
+                        Оформить заказ
                     </button>
-                </form>
-
-                <div className="flex justify-between items-center mt-5 text-sm text-gray-600">
-                    <a href="/register" className="hover:underline">Регистрация</a>
-                    <a href="/forgot-password" className="hover:underline">Забыли пароль?</a>
                 </div>
             </div>
         </div>
     );
-}
+};
+
+export default Cart;
