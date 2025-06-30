@@ -2,6 +2,16 @@ import React from "react"
 import ProductCard from "../components/ProductCard"
 
 function Catalog() {
+
+    // const [products, setProducts] = useState([]);
+
+    // useEffect(() => {
+    //     fetch("https://dummyjson.com/products?limit=12")
+    //     .then(res => res.json())
+    //     .then(data => setProducts(data.products))
+    //     .catch(err => console.error("Ошибка загрузки:", err));
+    // }, []);
+
     return (
         <div className="min-h-screen py-10 px-4">
             <div className="max-w-[1185px] mx-auto flex flex-col gap-10">
