@@ -1,35 +1,66 @@
-import { useEffect, useState } from "react"
-import ProductCard from "../components/ProductCard"
+import { useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
 import Filter from "../components/Filter";
 
 function Catalog() {
-
     const [products, setProducts] = useState([]);
-    
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [categoryTitle, setCategoryTitle] = useState("Рекомендации");
+    const [filters, setFilters] = useState({
+        popular: false,
+        inStock: false,
+        priceAsc: false
+    });
+
+    const fetchProducts = (url) => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data.products);
+                setFilteredProducts(data.products);
+            });
+    };
+
     useEffect(() => {
-        fetch("https://dummyjson.com/products?limit=194&sortBy=rating&order=desc")
-        .then(res => res.json())
-        .then(data => setProducts(data.products))
+        fetchProducts("https://dummyjson.com/products?limit=194&sortBy=rating&order=desc");
     }, []);
+
+    const handleCategoryClick = (category) => {
+        setCategoryTitle(category.name);
+        fetchProducts(category.url);
+    };
+
+    useEffect(() => {
+        let filtered = [...products];
+
+        if (filters.inStock) {
+            filtered = filtered.filter(p => p.stock > 0);
+        }
+
+        if (filters.popular) {
+            filtered.sort((a, b) => b.rating - a.rating);
+        }
+
+        if (filters.priceAsc) {
+            filtered.sort((a, b) => a.price - b.price);
+        }
+
+        setFilteredProducts(filtered);
+    }, [filters, products]);
 
     return (
         <div className="py-10 px-4">
             <div className="max-w-[1185px] mx-auto flex flex-col gap-10">
-                <CategoryCard />
-                <h2 className="text-[28px] font-semibold text-[#1F2937]">Рекомендации</h2>
+                <CategoryCard onClick={handleCategoryClick} />
+                <h2 className="text-[28px] font-semibold text-[#1F2937]">{categoryTitle}</h2>
                 <div className="flex flex-row gap-[15px]">
-                    <Filter />
+                    <Filter filters={filters} onChange={setFilters} />
                     <div className="flex-1">
                         <div className="grid grid-cols-3 gap-[15px]">
-                            {products.map((product) => (
+                            {filteredProducts.map((product) => (
                                 <ProductCard key={product.id} product={product} />
                             ))}
-                        </div>
-                        <div className="flex justify-center mt-8 gap-2">
-                            <button className="px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100">1</button>
-                            <button className="px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100">2</button>
-                            <button className="px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100">3</button>
                         </div>
                     </div>
                 </div>
