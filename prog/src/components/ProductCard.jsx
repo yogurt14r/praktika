@@ -1,5 +1,6 @@
 import React from "react";
 import like from "../assets/icon_like.svg";
+import Button from "./Button";
 
 const ProductCard = ({ product }) => {
 	return (
@@ -25,9 +26,10 @@ const ProductCard = ({ product }) => {
 					{product.price}$
 				</span>
 				<div className="px-[10px]">
-					<button className="bg-[#F97316] h-[34px] hover:bg-[#FB923C] text-white px-4 py-1 rounded-[25px] text-[16px] font-medium">
+					<Button initialCount={1} />
+					{/* <button className="bg-[#F97316] h-[34px] hover:bg-[#FB923C] text-white px-4 py-1 rounded-[25px] text-[16px] font-medium">
 						В корзину
-					</button>
+					</button> */}
 				</div>
 			</div>
 		</div>
