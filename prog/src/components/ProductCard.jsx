@@ -3,12 +3,12 @@ import like from "../assets/icon_like.svg";
 
 const ProductCard = ({ product }) => {
 	return (
-		<div className="w-[285px] bg-[#FEECDC] rounded-[20px] shadow-md overflow-hidden flex flex-col justify-between">
+		<div className="w-[285px] bg-[#FEECDC] rounded-[20px] shadow overflow-hidden flex flex-col justify-between">
 			<div className="bg-white w-[285px] h-[285px] overflow-hidden flex items-center justify-center">
 				<img
 					src={product.thumbnail}
 					alt={product.title}
-					// className="object-cover h-full"
+					className="object-cover h-full hover:scale-110 transition-transform duration-300"
 				/>
 			</div>
 

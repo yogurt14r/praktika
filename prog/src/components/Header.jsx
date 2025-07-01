@@ -21,7 +21,9 @@ const Header = () => {
                     </div>
                     <div className="flex gap-[28px]">
                         <img src={icon_like} />
-                        <img src={icon_shoppingCart} />
+                        <Link to="/cart" className="flex">
+                            <img src={icon_shoppingCart} />
+                        </Link>
                         <Link to="/auth" className="flex items-center rounded-[25px] bg-[#F97316] h-[44px] p-[12px] gap-[9px] text-white text-[16px] hover:bg-[#FB923C]">
                             <img src={icon_profile} />
                             <h5>Войти</h5>

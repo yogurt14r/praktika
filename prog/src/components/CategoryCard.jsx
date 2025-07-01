@@ -23,7 +23,7 @@ function CategoryCard({ onClick }) {
 						<div
 							key={i}
 							onClick={() => onClick?.(category)}
-							className="min-w-[180px] h-[111px] bg-white rounded-[25px] items-center justify-center cursor-pointer hover:shadow-md transition overflow-hidden"
+							className="min-w-[180px] h-[111px] bg-white rounded-[25px] items-center justify-center cursor-pointer shadow hover:shadow-md transition overflow-hidden"
 						>
 							<img
 								src={getCategoryImage(category.name)}

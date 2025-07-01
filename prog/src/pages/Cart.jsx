@@ -11,7 +11,7 @@ const Cart = () => {
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
-        <div className="max-w-[1185px] mx-auto bg-[#FFF5ED] px-6 py-10">
+        <div className="max-w-[1185px] mx-auto px-6 py-10">
             <h1 className="text-3xl font-bold mb-6">Корзина</h1>
 
             <div className="flex flex-col lg:flex-row gap-6">
