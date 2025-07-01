@@ -1,31 +1,40 @@
-function Filter({ filters, onChange }) {
+function Filter({ selectedFilter, onChange }) {
     return (
-        <div className="sticky top-[90px] w-full max-w-[285px] bg-white rounded-[25px] shadow p-6">
+        <div className="sticky top-[90px] w-full max-w-[285px] h-[285px] bg-white rounded-[25px] shadow p-6">
             <h3 className="text-lg font-semibold mb-4">Фильтр</h3>
             <div className="space-y-3 text-sm text-gray-700">
-                <label className="block">
+                <label className="block cursor-pointer">
                     <input
-                        type="checkbox"
-                        checked={filters.popular}
-                        onChange={(e) => onChange({ ...filters, popular: e.target.checked })}
+                        type="radio"
+                        name="filter"
+                        value="popular"
+                        checked={selectedFilter === "popular"}
+                        onChange={(e) => onChange(e.target.value)}
+                        className="mr-2"
                     />
-                    <span className="ml-2">По популярности</span>
+                    По популярности
                 </label>
-                <label className="block">
+                <label className="block cursor-pointer">
                     <input
-                        type="checkbox"
-                        checked={filters.inStock}
-                        onChange={(e) => onChange({ ...filters, inStock: e.target.checked })}
+                        type="radio"
+                        name="filter"
+                        value="priceAsc"
+                        checked={selectedFilter === "priceAsc"}
+                        onChange={(e) => onChange(e.target.value)}
+                        className="mr-2"
                     />
-                    <span className="ml-2">В наличии</span>
+                    Сначала дешевые
                 </label>
-                <label className="block">
+                <label className="block cursor-pointer">
                     <input
-                        type="checkbox"
-                        checked={filters.priceAsc}
-                        onChange={(e) => onChange({ ...filters, priceAsc: e.target.checked })}
+                        type="radio"
+                        name="filter"
+                        value=""
+                        checked={selectedFilter === ""}
+                        onChange={(e) => onChange("")}
+                        className="mr-2"
                     />
-                    <span className="ml-2">Сначала дешевые</span>
+                    Без фильтра
                 </label>
             </div>
         </div>

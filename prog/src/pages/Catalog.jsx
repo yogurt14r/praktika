@@ -31,23 +31,20 @@ function Catalog() {
         fetchProducts(category.url);
     };
 
+    const [selectedFilter, setSelectedFilter] = useState("");
+
     useEffect(() => {
         let filtered = [...products];
 
-        if (filters.inStock) {
-            filtered = filtered.filter(p => p.stock > 0);
-        }
-
-        if (filters.popular) {
+        if (selectedFilter === "popular") {
             filtered.sort((a, b) => b.rating - a.rating);
-        }
-
-        if (filters.priceAsc) {
+        } else if (selectedFilter === "priceAsc") {
             filtered.sort((a, b) => a.price - b.price);
         }
 
         setFilteredProducts(filtered);
-    }, [filters, products]);
+    }, [selectedFilter, products]);
+
 
     return (
         <div className="py-10 px-4">
@@ -55,7 +52,7 @@ function Catalog() {
                 <CategoryCard onClick={handleCategoryClick} />
                 <h2 className="text-[28px] font-semibold text-[#1F2937]">{categoryTitle}</h2>
                 <div className="flex flex-row gap-[15px]">
-                    <Filter filters={filters} onChange={setFilters} />
+                    <Filter selectedFilter={selectedFilter} onChange={setSelectedFilter} />
                     <div className="flex-1">
                         <div className="grid grid-cols-3 gap-[15px]">
                             {filteredProducts.map((product) => (

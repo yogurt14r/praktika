@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import like from "../assets/icon_like.svg";
 import Button from "./Button";
 
 const ProductCard = ({ product }) => {
+	const [count, setCount] = useState(0);
+
 	return (
 		<div className="w-[285px] bg-[#FEECDC] rounded-[20px] shadow overflow-hidden flex flex-col justify-between">
 			<div className="bg-white w-[285px] h-[285px] overflow-hidden flex items-center justify-center">
@@ -26,7 +28,12 @@ const ProductCard = ({ product }) => {
 					{product.price}$
 				</span>
 				<div className="px-[10px]">
-					<Button initialCount={1} />
+					<Button 
+						count={count}
+						onAdd={() => setCount(1)}
+						onIncrement={() => setCount(c => c + 1)}
+						onDecrement={() => setCount(c => Math.max(0, c - 1))}
+					/>
 					{/* <button className="bg-[#F97316] h-[34px] hover:bg-[#FB923C] text-white px-4 py-1 rounded-[25px] text-[16px] font-medium">
 						В корзину
 					</button> */}

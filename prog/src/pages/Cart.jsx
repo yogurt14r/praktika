@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from "../components/Button";
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -49,17 +50,16 @@ const Cart = () => {
 
                         <div className="flex flex-col items-end gap-2">
                             <span className="text-lg font-semibold">{item.discountedTotal}$</span>
-                            <div className="flex items-center gap-2 bg-[#F97316] rounded-full px-3 py-1 text-white">
-                                <button className="font-bold text-lg">-</button>
-                                <span>{item.quantity}</span>
-                                <button className="font-bold text-lg">+</button>
-                            </div>
+                            <Button
+                                count={item.quantity}
+                                readOnly={true}
+                            />
                         </div>
                     </div>
                     ))}
                 </div>
 
-                <div className="sticky top-[90px] w-[485px] bg-white rounded-[20px] p-6 shadow">
+                <div className="sticky top-[90px] w-[485px] h-[200px] bg-white rounded-[20px] p-6 shadow">
                     <p className="text-lg font-medium mb-2">
                         Количество товаров: <span className="font-bold">{totalQuantity}</span>
                     </p>
