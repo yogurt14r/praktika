@@ -10,7 +10,7 @@ const Header = () => {
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-            <header className="sticky top-0 flex justify-center w-full h-[82px] bg-[#FFF8F1] border-b-1 border-[#D1D5DB] px-[30px] py-[15px] text-black text-center">
+            <header className="sticky top-0 flex justify-center z-50 w-full h-[82px] bg-[#FFF8F1] border-b-1 border-[#D1D5DB] px-[30px] py-[15px] text-black text-center">
                 <div className="flex justify-between w-[1200px] h-[52px] gap-[90px] px-[15px] items-center">
                     <Link to="/">
                         <img src={logo} className="h-[42px]"/>
