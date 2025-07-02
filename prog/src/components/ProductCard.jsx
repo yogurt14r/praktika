@@ -16,10 +16,10 @@ const ProductCard = ({ product }) => {
 			</div>
 
 			<div>
-				<h4 className="text-[24px] px-[10px] py-[5px] font-semibold text-gray-900 truncate">
+				<h4 className="text-[24px] px-[10px] font-semibold text-gray-900 line-clamp-1">
 					{product.title}
 				</h4>
-				<p className="text-[16px] px-[10px] text-gray-500 mt-1 truncate">
+				<p className="text-[16px] px-[10px] text-gray-500 mt-1 line-clamp-3">
 					{product.description}
 				</p>
 			</div>

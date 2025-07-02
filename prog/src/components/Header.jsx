@@ -7,8 +7,6 @@ import icon_search from '../assets/icon_search.svg'
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-    // const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     return (
             <header className="sticky top-0 flex justify-center z-50 w-full h-[82px] bg-[#FFF8F1] border-b-1 border-[#D1D5DB] px-[30px] py-[15px] text-black text-center">
                 <div className="flex justify-between w-[1200px] h-[52px] gap-[90px] px-[15px] items-center">
@@ -16,7 +14,7 @@ const Header = () => {
                         <img src={logo} className="h-[42px]"/>
                     </Link>
                     <div className="flex w-[390px] h-[44px] bg-[#F97316] rounded-[25px] p-[2px] gap-[8px] items-center">
-                        <input type="text" placeholder="Найти" className="w-[344px] h-full bg-white rounded-[25px] px-[16px] focus:outline-none" />
+                        <input type="text" placeholder="Найти" className="w-[344px] h-full bg-[#FFF8F1] rounded-[25px] px-[16px] focus:outline-none" />
                         <img src={icon_search} className="" />
                     </div>
                     <div className="flex gap-[28px]">
