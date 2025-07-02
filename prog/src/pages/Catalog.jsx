@@ -7,11 +7,6 @@ function Catalog() {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [categoryTitle, setCategoryTitle] = useState("Рекомендации");
-    const [filters, setFilters] = useState({
-        popular: false,
-        inStock: false,
-        priceAsc: false
-    });
 
     const fetchProducts = (url) => {
         fetch(url)
@@ -23,7 +18,7 @@ function Catalog() {
     };
 
     useEffect(() => {
-        fetchProducts("https://dummyjson.com/products?limit=194&sortBy=rating&order=desc");
+        fetchProducts("https://dummyjson.com/products?limit=194&order=desc");
     }, []);
 
     const handleCategoryClick = (category) => {
@@ -31,7 +26,7 @@ function Catalog() {
         fetchProducts(category.url);
     };
 
-    const [selectedFilter, setSelectedFilter] = useState("");
+    const [selectedFilter, setSelectedFilter] = useState("popular");
 
     useEffect(() => {
         let filtered = [...products];
@@ -40,6 +35,10 @@ function Catalog() {
             filtered.sort((a, b) => b.rating - a.rating);
         } else if (selectedFilter === "priceAsc") {
             filtered.sort((a, b) => a.price - b.price);
+        } else if (selectedFilter === "priceDesc") {
+            filtered.sort((a, b) => b.price - a.price);
+        } else if (selectedFilter === "priceDesc") {
+            filtered.sort((a, b) => b.price - a.price);
         }
 
         setFilteredProducts(filtered);

@@ -29,6 +29,17 @@ function Filter({ selectedFilter, onChange }) {
                     <input
                         type="radio"
                         name="filter"
+                        value="priceDesc"
+                        checked={selectedFilter === "priceDesc"}
+                        onChange={(e) => onChange(e.target.value)}
+                        className="mr-2"
+                    />
+                    Сначала дорогие
+                </label>
+                <label className="block cursor-pointer">
+                    <input
+                        type="radio"
+                        name="filter"
                         value=""
                         checked={selectedFilter === ""}
                         onChange={(e) => onChange("")}
