@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import logo from '/logotipchik.svg'
-import icon_like from '../assets/icon_like.svg'
+import icon_liked from '../assets/icon_liked.svg'
 import icon_shoppingCart from '../assets/icon_shoppingCart.svg'
 import icon_profile from '../assets/icon_profile_white.svg'
 import icon_search from '../assets/icon_search.svg'
@@ -18,7 +18,7 @@ const Header = () => {
                         <img src={icon_search} className="" />
                     </div>
                     <div className="flex gap-[28px]">
-                        <img src={icon_like} />
+                        <img src={icon_liked} />
                         <Link to="/cart" className="flex">
                             <img src={icon_shoppingCart} />
                         </Link>

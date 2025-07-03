@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 function Auth() {
     return (
-        <div className="flex items-center justify-center pt-[100px] px-4">
-            <div className="flex flex-col gap-[100px]">
+        <div className="flex items-center justify-center py-[80px] px-4 ">
+            <div className="flex flex-col">
                 <h1 className="text-[36px] text-[#1F2937] font-medium text-center mb-6">ДОБРО ПОЖАЛОВАТЬ!<br />ВОЙДИТЕ В СВОЙ АККАУНТ</h1>
-                <form className="flex flex-col gap-[20px] w-[584px]">
+                <form className="flex flex-col gap-[20px] w-[5x84px]">
                     <div className="relative w-full h-[60px]">
                         <input
                             type="email"

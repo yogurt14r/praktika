@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import TopBar from './components/TopBar'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Catalog from './pages/Catalog'
 import Auth from './pages/Auth'
 import Cart from './pages/Cart'
@@ -13,11 +14,11 @@ function App() {
 	
 	return (
 	<>
-		<div className="min-h-screen bg-[#FFF8F1]">
+		<div className="min-h-screen flex flex-col bg-[#FFF8F1]">
 			<BrowserRouter>
 				<TopBar />
 				<Header />
-				<main className="">
+				<main className="flex-grow">
 					<section className='flex'>
 						<div className='flex-1'>
 							<Routes>
@@ -28,6 +29,7 @@ function App() {
 						</div>
 					</section>
 				</main>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	</>

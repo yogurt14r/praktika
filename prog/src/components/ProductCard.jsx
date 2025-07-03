@@ -1,18 +1,29 @@
 import React, { useState } from "react";
-import like from "../assets/icon_like.svg";
+import icon_like from "../assets/icon_like.svg";
+import icon_liked from "../assets/icon_liked.svg";
 import Button from "./Button";
 
 const ProductCard = ({ product }) => {
 	const [count, setCount] = useState(0);
+	const [liked, setLiked] = useState(false);
 
 	return (
 		<div className="w-[285px] bg-[#FEECDC] rounded-[20px] shadow overflow-hidden flex flex-col justify-between">
-			<div className="bg-white w-[285px] h-[285px] overflow-hidden flex items-center justify-center">
+			<div className="relative bg-white w-[285px] h-[285px] overflow-hidden flex items-center justify-center">
 				<img
 					src={product.thumbnail}
 					alt={product.title}
 					className="object-cover h-full hover:scale-110 transition-transform duration-300"
 				/>
+				<button
+					onClick={() => setLiked(!liked)}
+					className="absolute top-[18px] right-[18px] w-[24px] h-[24px] cursor-pointer"
+				>
+					<img
+						src={liked ? icon_liked : icon_like}
+						alt="like"
+					/>
+				</button>
 			</div>
 
 			<div>
