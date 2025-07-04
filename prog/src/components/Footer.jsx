@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import telegram from "../assets/telegram.svg"
+import instagram from "../assets/instagram.svg"
+import vk from "../assets/vk.svg"
 
 const Footer = () => {
 	return (
@@ -36,13 +39,13 @@ const Footer = () => {
 					<h4 className="text-lg font-semibold">Подписывайтесь на нас</h4>
 					<div className="flex gap-3">
 						<a href="https://web.telegram.org/" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition">
-							<img src="../assets/telegram.svg" alt="Telegram" className="w-5 h-5" />
+							<img src={telegram} alt="Telegram" className="w-5 h-5" />
 						</a>
 						<a href="https://instagram.com" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition">
-							<img src="../assets/instagram.svg" alt="Instagram" className="w-5 h-5" />
+							<img src={instagram} alt="Instagram" className="w-5 h-5" />
 						</a>
 						<a href="https://vk.com" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition">
-							<img src="../assets/vk.svg" alt="VK" className="w-5 h-5" />
+							<img src={vk} alt="VK" className="w-5 h-5" />
 						</a>
 					</div>
 				</div>

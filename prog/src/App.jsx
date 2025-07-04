@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import TopBar from './components/TopBar'
@@ -8,10 +7,7 @@ import Catalog from './pages/Catalog'
 import Auth from './pages/Auth'
 import Cart from './pages/Cart'
 
-
-function App() {
-	const [count, setCount] = useState(0)
-	
+function App() {	
 	return (
 	<>
 		<div className="min-h-screen flex flex-col bg-[#FFF8F1]">

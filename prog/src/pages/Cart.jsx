@@ -26,7 +26,7 @@ const Cart = () => {
     }
 
     return (
-        <div className="max-w-[1185px] mx-auto py-10">
+        <div className="max-w-[1185px] mx-auto py-[15px]">
             <h1 className="text-[48px] font-semibold mb-6">Корзина</h1>
 
             <div className="flex gap-[15px]">

@@ -37,8 +37,6 @@ function Catalog() {
             filtered.sort((a, b) => a.price - b.price);
         } else if (selectedFilter === "priceDesc") {
             filtered.sort((a, b) => b.price - a.price);
-        } else if (selectedFilter === "priceDesc") {
-            filtered.sort((a, b) => b.price - a.price);
         }
 
         setFilteredProducts(filtered);
@@ -46,7 +44,7 @@ function Catalog() {
 
 
     return (
-        <div className="py-10 px-4">
+        <div className="py-[15px] px-4">
             <div className="max-w-[1185px] mx-auto flex flex-col gap-10">
                 <CategoryCard onClick={handleCategoryClick} />
                 <h2 className="text-[28px] font-semibold text-[#1F2937]">{categoryTitle}</h2>
